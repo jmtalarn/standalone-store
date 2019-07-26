@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { createStore } from 'redux';
 
 /**
  * This is a reducer, a pure function with (state, action) => state signature.
@@ -14,9 +14,9 @@ import { createStore } from "redux";
  */
 function counter(state = 0, action) {
   switch (action.type) {
-    case "INCREMENT":
+    case 'INCREMENT':
       return state + 1;
-    case "DECREMENT":
+    case 'DECREMENT':
       return state - 1;
     default:
       return state;
@@ -25,7 +25,7 @@ function counter(state = 0, action) {
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
-let store = createStore(counter);
+const store = createStore(counter);
 
 // You can use subscribe() to update the UI in response to state changes.
 // Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
@@ -35,9 +35,9 @@ store.subscribe(() => console.log(store.getState()));
 
 // The only way to mutate the internal state is to dispatch an action.
 // The actions can be serialized, logged or stored and later replayed.
-store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: 'INCREMENT' });
 // 1
-store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: 'INCREMENT' });
 // 2
-store.dispatch({ type: "DECREMENT" });
+store.dispatch({ type: 'DECREMENT' });
 // 1
