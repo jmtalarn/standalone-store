@@ -1,9 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const env = process.env.NODE_ENV || "development";
 const isDev = env === "development";
 const isProd = env === "production";
+
+const extractCss = new ExtractTextPlugin({
+  filename: "index.css",
+  disable: isDev,
+});
 
 module.exports = {
   entry: {
@@ -13,7 +19,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin(), extractCss],
   module: {
     rules: [
       {
@@ -24,7 +30,10 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+        use: extractCss.extract({
+          use: [{ loader: "css-loader" }],
+          fallback: "style-loader",
+        }),
       },
     ],
   },
