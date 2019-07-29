@@ -3,14 +3,15 @@ import './index.css';
 import connectVanilla from './initAndConnect-vanilla';
 import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
+import VueComponent from './vue-counter.vue';
 
 import connectReact from './initAndConnect-react';
 import connectVue from './initAndConnect-vue';
 
-const paragraph = document.createElement('h1');
-paragraph.innerHTML = message;
+const header = document.createElement('h1');
+header.innerHTML = message;
 
-document.body.prepend(paragraph);
+document.body.prepend(header);
 
 
 const vanillaComponentContainer = document.createElement('div');
@@ -33,4 +34,4 @@ const vueComponentContainer = document.createElement('div');
 vueComponentContainer.id = 'vue';
 vueComponentContainer.innerHTML = 'Nothing rendered yet.';
 document.body.append(vueComponentContainer);
-connectVue('vue');
+connectVue('vue', VueComponent, ['incrementAction', 'decrementAction']);
