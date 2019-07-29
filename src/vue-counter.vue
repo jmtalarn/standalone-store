@@ -1,9 +1,8 @@
-export default {
 <template>
   <div>
-    <button>-</button>
-    <p>{{ count }}</p>
-    <button>+</button>
+    <button v-on:click="count--">-</button>
+    <p>{{ this.count }}</p>
+    <button v-on:click="count++">+</button>
   </div>
 </template>
 <style scoped>
@@ -16,11 +15,23 @@ div {
 }
 </style>
 <script>
+console.log(this);
 module.exports = {
-  data: function() {
-    return { count: 0 };
-  }
+  data: () => ({
+    count: 0
+  })
+  // methods: {
+  //   incrementAction: () => {
+  //     this.count++;
+  //   },
+  //   decrementAction: () => {
+  //     this.count--;
+  //   }
+  // }
+  // props: {
+  //   count: { type: Number },
+  //   incrementAction: { type: Function },
+  //   decrementAction: { type: Function }
+  // }
 };
 </script>
-
-}
