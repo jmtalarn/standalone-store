@@ -5,6 +5,7 @@ import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
 
 import connectReact from './initAndConnect-react';
+import connectVue from './initAndConnect-vue';
 
 const paragraph = document.createElement('h1');
 paragraph.innerHTML = message;
@@ -17,15 +18,19 @@ vanillaComponentContainer.id = 'vanilla';
 vanillaComponentContainer.innerHTML = 'Nothing rendered yet.';
 document.body.append(vanillaComponentContainer);
 
-const vanillaConnected = connectVanilla('vanilla', VanillaComponent, ['incrementAction', 'decrementAction'], ['render']);
+connectVanilla('vanilla', VanillaComponent, ['incrementAction', 'decrementAction'], ['render']);
 
-console.log(vanillaConnected);
 
 const reactComponentContainer = document.createElement('div');
 reactComponentContainer.id = 'react';
 reactComponentContainer.innerHTML = 'Nothing rendered yet.';
 document.body.append(reactComponentContainer);
 // No onUpdate parameter in connectReact as rendering on props update is implicit in React
-const reactConnected = connectReact('react', ReactComponent, ['incrementAction', 'decrementAction']);
+connectReact('react', ReactComponent, ['incrementAction', 'decrementAction']);
 
-console.log(reactConnected);
+
+const vueComponentContainer = document.createElement('div');
+vueComponentContainer.id = 'vue';
+vueComponentContainer.innerHTML = 'Nothing rendered yet.';
+document.body.append(vueComponentContainer);
+connectVue('vue');

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
@@ -19,7 +20,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  plugins: [new HtmlWebpackPlugin(), extractCss],
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js',
+    },
+  },
+  plugins: [new HtmlWebpackPlugin(), extractCss, new VueLoaderPlugin()],
   module: {
     rules: [
       {
@@ -40,6 +46,10 @@ module.exports = {
           use: [{ loader: 'css-loader' }],
           fallback: 'style-loader',
         }),
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
       },
     ],
   },
