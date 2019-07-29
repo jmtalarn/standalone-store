@@ -11,9 +11,9 @@ export default class ReactCounter extends Component {
               alignItems: 'center',
               justifyContent: 'space-around',
             }}>
-                <button onClick={this.props.increment}>+</button>
+                <button onClick={this.props.decrementAction}>-</button>
                 <p>{this.props.value}</p>
-                <button onClick={this.props.decrement}>-</button>
+                <button onClick={this.props.incrementAction}>+</button>
             </div>
 
     );
@@ -21,6 +21,6 @@ export default class ReactCounter extends Component {
 }
 ReactCounter.propTypes = {
   value: PropTypes.number,
-  increment: PropTypes.func,
-  decrement: PropTypes.func,
+  incrementAction: PropTypes.func,
+  decrementAction: PropTypes.func,
 };
