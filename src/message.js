@@ -1,1 +1,1 @@
-export default 'HELLO WORLD';
+export default 'One source of truth for all';
