@@ -20,6 +20,11 @@ const vanillaConnected = connectVanilla('vanilla', VanillaComponent, ['increment
 
 console.log(vanillaConnected);
 
-const reactConnected = connectReact('react', VanillaComponent, ['incrementAction', 'decrementAction'], ['render']);
+const reactComponentContainer = document.createElement('div');
+reactComponentContainer.id = 'react';
+reactComponentContainer.innerHTML = 'Nothing rendered yet.';
+document.body.append(reactComponentContainer);
+
+const reactConnected = connectReact('react');
 
 console.log(reactConnected);

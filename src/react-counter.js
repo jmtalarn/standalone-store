@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class ReactCounter extends Component {
-  increment() {
-    this.props.increment();
-  }
-
-  decrement() {
-    this.props.decrement();
-  }
-
   render() {
     return (
-            <div>
-                <button onClick={this.increment}>+</button>
+            <div style={{
+              display: 'flex',
+              margin: '0 auto',
+              maxWidth: '50%',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+            }}>
+                <button onClick={this.props.increment}>+</button>
                 <p>{this.props.value}</p>
-                <button onClick={this.decrement}>-</button>
+                <button onClick={this.props.decrement}>-</button>
             </div>
 
     );

@@ -1,7 +1,9 @@
-import { connect } from 'react-redux';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider, connect } from 'react-redux';
 import actions from './actions';
 import ReactCounter from './react-counter';
+import store from './store';
 
 export default function (elId) {
   const mapStateToProps = state => ({
@@ -11,11 +13,13 @@ export default function (elId) {
   // const mapDispatchToProps = dispatch => ({
   const mapDispatchToProps = () => ({
     increment: () => { actions.incrementAction(); },
-    decrement: () => { actions.incrementAction(); },
+    decrement: () => { actions.decrementAction(); },
   });
 
 
-  const connectedCounter = connect(mapStateToProps, mapDispatchToProps)(ReactCounter);
+  const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(ReactCounter);
 
-  ReactDOM.render(connectedCounter, document.getElementById(elId));
+
+  ReactDOM.render(<Provider store={store}><ConnectedCounter /></Provider>,
+    document.getElementById(elId));
 }
