@@ -1,7 +1,7 @@
 import store from './store';
 import allActions from './actions';
 
-export default function (Component, actionNames, onUpdate) {
+export default function (elId, Component, actionNames, onUpdate) {
   const actions = actionNames
     .reduce(
       (acc, curr) => {
@@ -10,7 +10,7 @@ export default function (Component, actionNames, onUpdate) {
       },
       {},
     );
-  const connected = new Component('vanilla', store.getState(), { ...actions });
+  const connected = new Component(elId, store.getState(), { ...actions });
   const methodsToRunOnUpdate = onUpdate.map(method => connected[method].bind(connected));
 
   store.subscribe(() => {

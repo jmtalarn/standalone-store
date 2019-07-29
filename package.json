@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/jmtalarn/standalone-store#readme",
   "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
     "redux": "^4.0.4"
   },
   "devDependencies": {
@@ -31,6 +35,7 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.14.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
