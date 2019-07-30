@@ -1,6 +1,7 @@
 import message from './message';
 import './index.css';
 import './icons';
+import ElmLogo from './elm_logo.svg';
 import connectVanilla from './initAndConnect-vanilla';
 import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
@@ -8,6 +9,7 @@ import VueComponent from './vue-counter.vue';
 
 import connectReact from './initAndConnect-react';
 import connectVue from './initAndConnect-vue';
+import connectElm from './initAndConnect-elm';
 
 const header = document.createElement('header');
 header.innerHTML = `<h1>${message}</h1>`;
@@ -63,3 +65,18 @@ vueComponentContainer.innerHTML = `
 `;
 main.append(vueComponentContainer);
 connectVue('vue-component', VueComponent, ['incrementAction', 'decrementAction']);
+
+
+const elmComponentContainer = document.createElement('div');
+elmComponentContainer.id = 'elm';
+elmComponentContainer.innerHTML = `
+    <div class="component-box">
+        <div class="header">
+            <span class="icon">${ElmLogo}</span> Elm Component</div>
+        <div id="elm-component">
+            Nothing rendered yet.
+        </div>
+    </div>
+`;
+main.append(elmComponentContainer);
+connectElm('elm-component');

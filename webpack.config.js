@@ -50,6 +50,19 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        use: {
+          loader: 'elm-webpack-loader',
+          options: {},
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader',
       },
     ],
   },
