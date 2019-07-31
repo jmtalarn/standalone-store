@@ -21,4 +21,6 @@ export default function (elId, ElmCounter, actionNames) {
       },
     );
   });
+
+  return elmCounter;
 }

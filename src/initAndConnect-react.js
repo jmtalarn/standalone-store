@@ -5,6 +5,7 @@ import allActions from './actions';
 import store from './store';
 
 export default function (elId, Component, actionNames) {
+  let ConnectedAndWrappedCounter = null;
   if (actionNames) {
     const actions = actionNames
       .reduce(
@@ -24,8 +25,10 @@ export default function (elId, Component, actionNames) {
 
     const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Component);
 
+    ConnectedAndWrappedCounter = <Provider store={store}><ConnectedCounter /></Provider>;
 
-    ReactDOM.render(<Provider store={store}><ConnectedCounter /></Provider>,
+    ReactDOM.render(ConnectedAndWrappedCounter,
       document.getElementById(elId));
   }
+  return ConnectedAndWrappedCounter;
 }

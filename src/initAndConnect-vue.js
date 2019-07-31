@@ -19,11 +19,10 @@ export default function (elId, Component, actionNames) {
 
   const ConnectedVueComponent = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-  const vueThing = new Vue({
+  return new Vue({
     el: `#${elId}`,
     data() { return { store }; },
     components: { ConnectedVueComponent },
     template: '<ConnectedVueComponent :store="store"/>',
   });
-  console.log(vueThing);
 }

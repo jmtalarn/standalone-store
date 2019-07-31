@@ -14,7 +14,7 @@ const extractCss = new ExtractTextPlugin({
 
 module.exports = {
   entry: {
-    bundle: './src/index.js',
+    bundle: ['./src/index.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -25,7 +25,11 @@ module.exports = {
       vue: 'vue/dist/vue.js',
     },
   },
-  plugins: [new HtmlWebpackPlugin(), extractCss, new VueLoaderPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin(),
+    extractCss,
+    new VueLoaderPlugin(),
+  ],
   module: {
     rules: [
       {

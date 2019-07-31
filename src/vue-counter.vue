@@ -15,7 +15,6 @@ div {
 }
 </style>
 <script>
-console.log(this);
 module.exports = {
   // data: () => ({
   //   count: 0
