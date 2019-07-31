@@ -12,8 +12,8 @@ import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 
 
-port increment: () -> Cmd msg
-port decrement: () -> Cmd msg
+port incrementAction: () -> Cmd msg
+port decrementAction: () -> Cmd msg
 port countFromState: (Int -> msg) -> Sub msg
 -- MODEL
 
@@ -54,13 +54,13 @@ update msg model =
             let
                 count = model.count
             in
-            ( { model | count = count + 1 }, increment () )
+            ( { model | count = count + 1 }, incrementAction () )
 
         Decrement ->
             let
                 count = model.count
             in
-            ( { model | count = count - 1 }, decrement () )
+            ( { model | count = count - 1 }, decrementAction () )
         
         State count->
             ( { model | count = count }, Cmd.none )

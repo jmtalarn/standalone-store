@@ -6,6 +6,7 @@ import connectVanilla from './initAndConnect-vanilla';
 import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
 import VueComponent from './vue-counter.vue';
+import ElmComponent from './elm-counter.elm';
 
 import connectReact from './initAndConnect-react';
 import connectVue from './initAndConnect-vue';
@@ -25,7 +26,7 @@ vanillaComponentContainer.id = 'vanilla';
 vanillaComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <i class="icon fab fa-js"></i>Javascript Component</div>
+            <i class="icon fab fa-js"></i>Vanilla Component</div>
         <div id="vanilla-component">
             Nothing rendered yet.
         </div>
@@ -79,4 +80,4 @@ elmComponentContainer.innerHTML = `
     </div>
 `;
 main.append(elmComponentContainer);
-connectElm('elm-component');
+connectElm('elm-component', ElmComponent, ['incrementAction', 'decrementAction']);
