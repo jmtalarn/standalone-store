@@ -17,6 +17,7 @@ class WcCounter extends HTMLElement {
         }
         div p {
             color: red;
+            padding: 1rem;
         }
     </style>
     <div>

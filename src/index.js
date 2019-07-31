@@ -1,8 +1,12 @@
 import message from './message';
 import './index.css';
-import './icons';
 import ElmLogo from './elm_logo.svg';
 import WcLogo from './webcomponent.svg';
+import SvelteLogo from './svelte.svg';
+import StencilLogo from './stencil.svg';
+import ReactLogo from './React.svg';
+import JsLogo from './js.svg';
+import VueLogo from './Vuejs.svg';
 import connectVanilla from './initAndConnect-vanilla';
 import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
@@ -30,9 +34,9 @@ vanillaComponentContainer.id = 'vanilla';
 vanillaComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <i class="icon fab fa-js"></i>Vanilla Component</div>
+            <span class="icon">${JsLogo}</span>Vanilla Component</div>
         <div id="vanilla-component">
-            Nothing rendered yet.
+            <p>Nothing rendered yet.</p>
         </div>
     </div>
 `;
@@ -46,9 +50,9 @@ reactComponentContainer.id = 'react';
 reactComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <i class="icon fab fa-react"></i>React Component</div>
+            <span class="icon">${ReactLogo}</span>React Component</div>
         <div id="react-component">
-            Nothing rendered yet.
+            <p>Nothing rendered yet.</p>
         </div>
     </div>
 `;
@@ -62,9 +66,9 @@ vueComponentContainer.id = 'vue';
 vueComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <i class="icon fab fa-vuejs"></i>Vue Component</div>
+            <span class="icon">${VueLogo}</span>Vue Component</div>
         <div id="vue-component">
-            Nothing rendered yet.
+            <p>Nothing rendered yet.</p>
         </div>
     </div>
 `;
@@ -79,7 +83,7 @@ elmComponentContainer.innerHTML = `
         <div class="header">
             <span class="icon">${ElmLogo}</span> Elm Component</div>
         <div id="elm-component">
-            Nothing rendered yet.
+            <p>Nothing rendered yet.</p>
         </div>
     </div>
 `;
@@ -93,10 +97,38 @@ wcComponentContainer.innerHTML = `
         <div class="header">
             <span class="icon">${WcLogo}</span>Web Component</div>
         <div id="wc-component">
-Nothing rendered yet.
+<p>Nothing rendered yet.</p>
 
         </div>
     </div>
 `;
 main.append(wcComponentContainer);
 connectWc('wc-component', WcComponent, actions);
+
+const svelteComponentContainer = document.createElement('div');
+svelteComponentContainer.id = 'svelte';
+svelteComponentContainer.innerHTML = `
+    <div class="component-box">
+        <div class="header">
+            <span class="icon">${SvelteLogo}</span> Svelte Component</div>
+        <div id="svelte-component">
+            <p>Nothing rendered yet.</p>
+        </div>
+    </div>
+`;
+main.append(svelteComponentContainer);
+// connectSvelte('svelte-component', SvelteComponent, actions);
+
+const stencilComponentContainer = document.createElement('div');
+stencilComponentContainer.id = 'stencil';
+stencilComponentContainer.innerHTML = `
+    <div class="component-box">
+        <div class="header">
+            <span class="icon">${StencilLogo}</span> Stencil Component</div>
+        <div id="stencil-component">
+            <p>Nothing rendered yet.</p>
+        </div>
+    </div>
+`;
+main.append(stencilComponentContainer);
+// connectSvelte('svelte-component', SvelteComponent, actions);
