@@ -7,17 +7,18 @@ import StencilLogo from './stencil.svg';
 import ReactLogo from './React.svg';
 import JsLogo from './js.svg';
 import VueLogo from './Vuejs.svg';
-import connectVanilla from './initAndConnect-vanilla';
 import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
 import VueComponent from './vue-counter.vue';
 import ElmComponent from './elm-counter.elm';
 import WcComponent from './wc-counter';
+import SvelteComponent from './svelte-counter.svelte';
+import connectVanilla from './initAndConnect-vanilla';
 import connectReact from './initAndConnect-react';
 import connectVue from './initAndConnect-vue';
 import connectElm from './initAndConnect-elm';
-
 import connectWc from './initAndConnect-wc';
+import connectSvelte from './initAndConnect-svelte';
 
 const header = document.createElement('header');
 header.innerHTML = `<h1>${message}</h1>`;
@@ -117,7 +118,7 @@ svelteComponentContainer.innerHTML = `
     </div>
 `;
 main.append(svelteComponentContainer);
-// connectSvelte('svelte-component', SvelteComponent, actions);
+connectSvelte('svelte-component', SvelteComponent, actions);
 
 const stencilComponentContainer = document.createElement('div');
 stencilComponentContainer.id = 'stencil';

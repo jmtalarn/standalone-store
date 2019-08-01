@@ -23,7 +23,9 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.js',
+      svelte: path.resolve('node_modules', 'svelte'),
     },
+    mainFields: ['svelte', 'browser', 'module', 'main'], //
   },
   plugins: [
     new HtmlWebpackPlugin(),
@@ -63,6 +65,12 @@ module.exports = {
           loader: 'elm-webpack-loader',
           options: {},
         },
+
+      },
+      {
+        test: /\.(svelte)$/,
+        exclude: /node_modules/,
+        use: 'svelte-loader',
       },
       {
         test: /\.svg$/,
