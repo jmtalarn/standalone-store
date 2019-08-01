@@ -29,7 +29,7 @@ vanillaComponentContainer.id = 'vanilla';
 vanillaComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${JsLogo}</span>Vanilla Component</div>
+            <span class="icon">${logo.js}</span>Vanilla Component</div>
         <div id="vanilla-component">
             <p>Nothing rendered yet.</p>
         </div>
