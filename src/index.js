@@ -1,12 +1,6 @@
 import message from './message';
 import './index.css';
-import ElmLogo from './elm_logo.svg';
-import WcLogo from './webcomponent.svg';
-import SvelteLogo from './svelte.svg';
-import StencilLogo from './stencil.svg';
-import ReactLogo from './React.svg';
-import JsLogo from './js.svg';
-import VueLogo from './Vuejs.svg';
+import logo from './logos';
 import VanillaComponent from './vanilla-counter';
 import ReactComponent from './react-counter';
 import VueComponent from './vue-counter.vue';
@@ -51,7 +45,7 @@ reactComponentContainer.id = 'react';
 reactComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${ReactLogo}</span>React Component</div>
+            <span class="icon">${logo.react}</span>React Component</div>
         <div id="react-component">
             <p>Nothing rendered yet.</p>
         </div>
@@ -67,7 +61,7 @@ vueComponentContainer.id = 'vue';
 vueComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${VueLogo}</span>Vue Component</div>
+            <span class="icon">${logo.vue}</span>Vue Component</div>
         <div id="vue-component">
             <p>Nothing rendered yet.</p>
         </div>
@@ -82,7 +76,7 @@ elmComponentContainer.id = 'elm';
 elmComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${ElmLogo}</span> Elm Component</div>
+            <span class="icon">${logo.elm}</span> Elm Component</div>
         <div id="elm-component">
             <p>Nothing rendered yet.</p>
         </div>
@@ -96,7 +90,7 @@ wcComponentContainer.id = 'wc';
 wcComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${WcLogo}</span>Web Component</div>
+            <span class="icon">${logo.wc}</span>Web Component</div>
         <div id="wc-component">
 <p>Nothing rendered yet.</p>
 
@@ -111,7 +105,7 @@ svelteComponentContainer.id = 'svelte';
 svelteComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${SvelteLogo}</span> Svelte Component</div>
+            <span class="icon">${logo.svelte}</span> Svelte Component</div>
         <div id="svelte-component">
             <p>Nothing rendered yet.</p>
         </div>
@@ -125,7 +119,7 @@ stencilComponentContainer.id = 'stencil';
 stencilComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${StencilLogo}</span> Stencil Component</div>
+            <span class="icon">${logo.stencil}</span> Stencil Component</div>
         <div id="stencil-component">
             <p>Nothing rendered yet.</p>
         </div>
