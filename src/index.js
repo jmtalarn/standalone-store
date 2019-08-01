@@ -7,12 +7,15 @@ import VueComponent from './vue-counter.vue';
 import ElmComponent from './elm-counter.elm';
 import WcComponent from './wc-counter';
 import SvelteComponent from './svelte-counter.svelte';
+import AngularComponent from './angular-counter.ts';
+
 import connectVanilla from './initAndConnect-vanilla';
 import connectReact from './initAndConnect-react';
 import connectVue from './initAndConnect-vue';
 import connectElm from './initAndConnect-elm';
 import connectWc from './initAndConnect-wc';
 import connectSvelte from './initAndConnect-svelte';
+import connectAngular from './initAndConnect-angular';
 
 
 const header = document.createElement('header');
@@ -127,4 +130,5 @@ angularComponentContainer.innerHTML = `
     </div>
 `;
 main.append(angularComponentContainer);
-// connectAngular('angular-component', AngularComponent, actions);
+console.log(AngularComponent);
+connectAngular('angular-component', AngularComponent, actions);

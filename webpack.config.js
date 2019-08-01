@@ -77,6 +77,10 @@ module.exports = {
         test: /\.svg$/,
         loader: 'raw-loader',
       },
+      {
+        test: /\.ts$/,
+        use: ['ts-loader', 'angular2-template-loader'],
+      },
     ],
   },
 };
