@@ -16,17 +16,6 @@ div {
 </style>
 <script>
 module.exports = {
-  // data: () => ({
-  //   count: 0
-  // })
-  // methods: {
-  //   incrementAction: () => {
-  //     this.count++;
-  //   },
-  //   decrementAction: () => {
-  //     this.count--;
-  //   }
-  // }
   props: {
     count: { type: Number },
     incrementAction: { type: Function },

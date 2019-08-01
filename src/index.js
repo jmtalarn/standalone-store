@@ -14,6 +14,7 @@ import connectElm from './initAndConnect-elm';
 import connectWc from './initAndConnect-wc';
 import connectSvelte from './initAndConnect-svelte';
 
+
 const header = document.createElement('header');
 header.innerHTML = `<h1>${message}</h1>`;
 
@@ -114,16 +115,16 @@ svelteComponentContainer.innerHTML = `
 main.append(svelteComponentContainer);
 connectSvelte('svelte-component', SvelteComponent, actions);
 
-const stencilComponentContainer = document.createElement('div');
-stencilComponentContainer.id = 'stencil';
-stencilComponentContainer.innerHTML = `
+const angularComponentContainer = document.createElement('div');
+angularComponentContainer.id = 'angular';
+angularComponentContainer.innerHTML = `
     <div class="component-box">
         <div class="header">
-            <span class="icon">${logo.stencil}</span> Stencil Component</div>
-        <div id="stencil-component">
+            <span class="icon">${logo.angular}</span> Angular Component</div>
+        <div id="angular-component">
             <p>Nothing rendered yet.</p>
         </div>
     </div>
 `;
-main.append(stencilComponentContainer);
-// connectSvelte('svelte-component', SvelteComponent, actions);
+main.append(angularComponentContainer);
+// connectAngular('angular-component', AngularComponent, actions);
