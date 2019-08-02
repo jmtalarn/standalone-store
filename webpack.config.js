@@ -79,7 +79,7 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        use: ['ts-loader', 'angular2-template-loader'],
+        use: ['ts-loader'],
       },
     ],
   },

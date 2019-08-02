@@ -1,9 +1,6 @@
-import { Component, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-// import { CommonModule } from '@angular/common';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+// import { Component, NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, ViewChild } from '@angular/core';
+import {Component } from '@angular/core'
 
-import './ng-polyfills.ts';
 
 
 @Component({
@@ -11,7 +8,7 @@ import './ng-polyfills.ts';
     template: `
     <div>
         <button>-</button>
-        <p>{{count}}</p>
+        <p>Something here</p>
         <button>+</button>
     </div>
     `,
@@ -28,18 +25,7 @@ import './ng-polyfills.ts';
     ]
 
 })
-class AngularCounter {}
+export default class AngularCounter {}
 
-@NgModule({
-  imports: [
-    BrowserModule,
-  ],
-  declarations: [AngularCounter],
-  bootstrap: [AngularCounter],
-})
-export default class AngularCounterModule {}
 
-// platformBrowserDynamic()
-//   .bootstrapModule(AngularCounterModule)
-//   .catch(err => console.error(err));
 
