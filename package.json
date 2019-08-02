@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack-dev-server --content-base dist --hot",
-    "lint": "eslint ./src --ext .js"
+    "lint": "eslint ./src --ext .js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/jmtalarn/standalone-store/issues"
   },
-  "homepage": "https://github.com/jmtalarn/standalone-store#readme",
+  "homepage": "https://github.com/jmtalarn/standalone-store",
   "dependencies": {
     "@angular/common": "^8.2.0",
     "@angular/compiler": "^8.2.0",
@@ -56,6 +58,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "raw-loader": "^3.1.0",
     "style-loader": "^0.23.1",
