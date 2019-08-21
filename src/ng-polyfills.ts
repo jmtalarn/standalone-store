@@ -14,9 +14,10 @@
 // import 'core-js/es/set';
 // import 'core-js/es/promise';
 
-// import 'classlist.js'; 
+// import 'classlist.js';
 
 import 'core-js/es/reflect';
-
-// import 'web-animations-js';  
-import 'zone.js'; 
+import 'core-js/stable/reflect';
+import 'core-js/features/reflect';
+// import 'web-animations-js';
+import 'zone.js/dist/zone';

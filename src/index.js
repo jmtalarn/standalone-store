@@ -7,7 +7,7 @@ import VueComponent from './vue-counter.vue';
 import ElmComponent from './elm-counter.elm';
 import WcComponent from './wc-counter';
 import SvelteComponent from './svelte-counter.svelte';
-import AngularComponent from './angular-counter.ts';
+// import AngularComponent from './angular-counter.ts';
 
 import connectVanilla from './initAndConnect-vanilla';
 import connectReact from './initAndConnect-react';
@@ -16,7 +16,6 @@ import connectElm from './initAndConnect-elm';
 import connectWc from './initAndConnect-wc';
 import connectSvelte from './initAndConnect-svelte';
 import connectAngular from './initAndConnect-angular';
-
 
 const header = document.createElement('header');
 header.innerHTML = `<h1>${message}</h1>`;
@@ -43,7 +42,6 @@ main.append(vanillaComponentContainer);
 
 connectVanilla('vanilla-component', VanillaComponent, actions, ['render']);
 
-
 const reactComponentContainer = document.createElement('div');
 reactComponentContainer.id = 'react';
 reactComponentContainer.innerHTML = `
@@ -59,7 +57,6 @@ main.append(reactComponentContainer);
 // No onUpdate parameter in connectReact as rendering on props update is implicit in React
 connectReact('react-component', ReactComponent, actions);
 
-
 const vueComponentContainer = document.createElement('div');
 vueComponentContainer.id = 'vue';
 vueComponentContainer.innerHTML = `
@@ -73,7 +70,6 @@ vueComponentContainer.innerHTML = `
 `;
 main.append(vueComponentContainer);
 connectVue('vue-component', VueComponent, actions);
-
 
 const elmComponentContainer = document.createElement('div');
 elmComponentContainer.id = 'elm';
@@ -130,5 +126,5 @@ angularComponentContainer.innerHTML = `
     </div>
 `;
 main.append(angularComponentContainer);
-console.log(AngularComponent);
-connectAngular('angular-component', AngularComponent, actions);
+
+connectAngular('angular-component', {}, actions);
