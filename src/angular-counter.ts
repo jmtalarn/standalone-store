@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
   selector: 'angular-counter',
   template: `
     <div>
-      <button>-</button>
-      <p>0</p>
-      <button>+</button>
+      <button (click)="decrementCount()">-</button>
+      <p>{{ count }}</p>
+      <button (click)="incrementCount()">+</button>
     </div>
   `,
   styles: [
@@ -22,4 +22,14 @@ import { Component } from '@angular/core';
     `,
   ],
   })
-export default class AngularCounter {}
+export default class AngularCounter {
+  count: number = 0;
+
+  incrementCount() {
+    this.count += 1;
+  }
+
+  decrementCount() {
+    this.count -= 1;
+  }
+}
