@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/jmtalarn/standalone-store",
   "dependencies": {
+    "@angular-redux/store": "^10.0.0",
     "@angular/common": "^8.2.0",
     "@angular/compiler": "^8.2.0",
     "@angular/core": "^8.2.0",

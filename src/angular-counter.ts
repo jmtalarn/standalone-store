@@ -1,12 +1,14 @@
 // import { Component, NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { select, NgRedux } from '@angular-redux/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'angular-counter',
   template: `
     <div>
       <button (click)="decrementCount()">-</button>
-      <p>{{ count }}</p>
+      <p>{{ count | async }}</p>
       <button (click)="incrementCount()">+</button>
     </div>
   `,
@@ -23,13 +25,17 @@ import { Component } from '@angular/core';
   ],
   })
 export default class AngularCounter {
-  count: number = 0;
+  @select(state => state) count: Observable<number>;
+
+  constructor(private ngRedux: NgRedux<number>) {
+    console.log('THIS IS THE STATE', ngRedux);
+  }
 
   incrementCount() {
-    this.count += 1;
+    this.ngRedux.dispatch({ type: 'INCREMENT' });
   }
 
   decrementCount() {
-    this.count -= 1;
+    this.ngRedux.dispatch({ type: 'DECREMENT' });
   }
 }

@@ -4,7 +4,7 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import allActions from './actions';
 import AngularCounterModule from './angular-counter-module.ts';
-// import store from './store';
+
 enableProdMode();
 
 export default function (elId, Component, actionNames) {
