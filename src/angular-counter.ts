@@ -27,9 +27,7 @@ import { Observable } from 'rxjs';
 export default class AngularCounter {
   @select(state => state) count: Observable<number>;
 
-  constructor(private ngRedux: NgRedux<number>) {
-    console.log('THIS IS THE STATE', ngRedux);
-  }
+  constructor(private ngRedux: NgRedux<number>) {}
 
   incrementCount() {
     this.ngRedux.dispatch({ type: 'INCREMENT' });
