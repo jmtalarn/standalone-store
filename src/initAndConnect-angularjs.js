@@ -1,4 +1,6 @@
-import store from './store';
+// import * as angular from 'angular';
+// import ngRedux, { connect } from 'ng-redux';
+// import store from './store';
 import allActions from './actions';
 
 export default function (elId, Component, actionNames) {
@@ -6,7 +8,18 @@ export default function (elId, Component, actionNames) {
     acc[curr] = allActions[curr];
     return acc;
   }, {});
-  const connected = new Component(elId, store.getState(), { ...actions });
+  // angular.module('app', [ngRedux]).config([
+  //   '$ngReduxProvider',
+  //   ($ngReduxProvider) => {
+  //     $ngReduxProvider.provideStore(store);
+  //   },
+  // ]);
+  console.log(actions);
+  const connected = new Component(elId); // , store.getState(), { ...actions });
+  // const connected = connect(
+  //   mapStateToTarget,
+  //   [mapDispatchToTarget],
+  // )(component);
 
   return connected;
 }
