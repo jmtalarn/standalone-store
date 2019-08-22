@@ -2,7 +2,7 @@
 import './ng-polyfills.ts';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
+import store from './store';
 import allActions from './actions';
 import AngularCounterModule from './angular-counter-module.ts';
 
@@ -14,9 +14,11 @@ export default function (elId, Component, actionNames) {
     acc[curr] = allActions[curr];
     return acc;
   }, {});
-  console.log(actions);
 
-  platformBrowserDynamic()
+  platformBrowserDynamic([
+    { provide: 'ACTIONS_OBJECT', useValue: actions },
+    { provide: 'STORE', useValue: store },
+  ])
     .bootstrapModule(AngularCounterModule)
     .catch(err => console.error(err));
 

@@ -1,20 +1,19 @@
 /* global */
 
-import { Injectable } from '@angular/core';
-import store from './store.js';
-
-import allActions from './actions';
+import { Inject } from '@angular/core';
 
 export class CounterActionsService {
+  actions;
+
+  constructor(@Inject('ACTIONS_OBJECT') actions) {
+    this.actions = actions;
+  }
+
   incrementAction() {
-    store.dispatch({ type: 'INCREMENT' });
+    this.actions.incrementAction();
   }
 
   decrementAction() {
-    store.dispatch({ type: 'DECREMENT' });
+    this.actions.decrementAction();
   }
-  // constructor(actionNames) {
-  //   actionNames.forEach((actionName) => {
-  //     this[actionName] = allActions[actionName];
-  //   });
 }
