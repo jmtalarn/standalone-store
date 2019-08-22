@@ -1,5 +1,5 @@
 // import { Component, NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, ViewChild } from '@angular/core';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import { CounterActionsService } from './angular-injectable-actions.ts';
@@ -25,15 +25,23 @@ import { CounterActionsService } from './angular-injectable-actions.ts';
     `,
   ],
   })
-export default class AngularCounter {
+export default class AngularCounter implements OnInit {
   readonly count$: Observable<number>;
 
-  constructor(private ngRedux: NgRedux<number>, private actions: CounterActionsService) {
-    console.log(ngRedux);
-
+  constructor(
+    private ngRedux: NgRedux<number>,
+    private actions: CounterActionsService,
+    private changeDetectorRef: ChangeDetectorRef,
+  ) {
     this.count$ = ngRedux.select<number>((state) => {
       console.log('Observing value', this.count$, state);
       return state;
+    });
+  }
+
+  ngOnInit() {
+    this.count$.subscribe(() => {
+      this.changeDetectorRef.detectChanges();
     });
   }
 
@@ -44,20 +52,4 @@ export default class AngularCounter {
   decrement() {
     this.actions.decrementAction();
   }
-
-  // @select(state => state) count: Observable<number>;
-
-  // public count2: Observable<number>;
-
-  // constructor(private ngRedux: NgRedux<number>) {
-  //   this.count2 = this.ngRedux.select(state => state);
-  // }
-
-  // incrementCount() {
-  //   this.ngRedux.dispatch({ type: 'INCREMENT' });
-  // }
-
-  // decrementCount() {
-  //   this.ngRedux.dispatch({ type: 'DECREMENT' });
-  // }
 }
