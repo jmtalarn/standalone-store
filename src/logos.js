@@ -1,3 +1,4 @@
+import AngularJSLogo from './AngularJS.svg';
 import ElmLogo from './elm_logo.svg';
 import WcLogo from './webcomponent.svg';
 import SvelteLogo from './svelte.svg';
@@ -14,4 +15,5 @@ export default {
   react: ReactLogo,
   js: JsLogo,
   vue: VueLogo,
+  angularjs: AngularJSLogo,
 };

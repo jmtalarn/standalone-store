@@ -7,7 +7,7 @@ import VueComponent from './vue-counter.vue';
 import ElmComponent from './elm-counter.elm';
 import WcComponent from './wc-counter';
 import SvelteComponent from './svelte-counter.svelte';
-// import AngularComponent from './angular-counter.ts';
+import AngularJsComponent from './angularjs-counter';
 
 import connectVanilla from './initAndConnect-vanilla';
 import connectReact from './initAndConnect-react';
@@ -16,6 +16,7 @@ import connectElm from './initAndConnect-elm';
 import connectWc from './initAndConnect-wc';
 import connectSvelte from './initAndConnect-svelte';
 import connectAngular from './initAndConnect-angular';
+import connectAngularjs from './initAndConnect-angularjs';
 
 const header = document.createElement('header');
 header.innerHTML = `<h1>${message}</h1>`;
@@ -128,3 +129,18 @@ angularComponentContainer.innerHTML = `
 main.append(angularComponentContainer);
 
 connectAngular('angular-component', {}, actions);
+
+const angularjsComponentContainer = document.createElement('div');
+angularjsComponentContainer.id = 'angularjs';
+angularjsComponentContainer.innerHTML = `
+    <div class="component-box">
+        <div class="header">
+            <span class="icon">${logo.angularjs}</span> AngularJs Component</div>
+        <div id="angularjs-component">
+            <p>Nothing rendered yet.</p>
+        </div>
+    </div>
+`;
+main.append(angularjsComponentContainer);
+
+connectAngularjs('angularjs-component', AngularJsComponent, actions);
