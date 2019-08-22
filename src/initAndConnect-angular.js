@@ -2,6 +2,7 @@
 import './ng-polyfills.ts';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 import allActions from './actions';
 import AngularCounterModule from './angular-counter-module.ts';
 
