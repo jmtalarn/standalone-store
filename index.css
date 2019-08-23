@@ -4,6 +4,8 @@ body {
 p {
   color: red;
   padding: 1rem;
+  min-width: 2rem;
+  text-align: center;
 }
 main {
   display: grid;
@@ -48,8 +50,8 @@ button {
   overflow: hidden;
   transform: translate3d(0, 0, 0);
   font-size: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  min-width: 3rem;
+  min-height: 3rem;
   background-color: rgb(241, 241, 241); /* rgb(0, 183, 255); */
   border: none;
   color: grey; /*#fff;*/
