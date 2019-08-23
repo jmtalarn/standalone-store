@@ -4,7 +4,6 @@ import store from './store';
 import allActions from './actions';
 
 function mapStateToThis(state) {
-  console.log('mapStateToThis', state);
   return {
     value: state,
   };
@@ -29,7 +28,7 @@ export default function (elId, Component, actionNames) {
 
   angular
     .module('angularjsCounter', [ngRedux])
-    .factory('ngActions', () => actions)
+    .factory('ngActions', () => () => actions)
     .component('angularjsCounter', Component(elId, CounterController))
     .controller('CounterController', ['$ngRedux', '$scope', 'ngActions', CounterController])
     .config([
