@@ -17,6 +17,8 @@ class CounterController {
     $scope.$on('$destroy', unsubscribe);
   }
 }
+CounterController.$inject = ['$ngRedux', '$scope', 'ngActions'];
+
 export default function (elId, Component, actionNames) {
   const actions = actionNames.reduce((acc, curr) => {
     acc[curr] = allActions[curr];
@@ -24,12 +26,12 @@ export default function (elId, Component, actionNames) {
   }, {});
 
   // const component = new Component(elId, CounterController);
-  const component = Component(elId, CounterController);
+
   angular
     .module('angularjsCounter', [ngRedux])
     .factory('ngActions', () => actions)
-    .component('angularjsCounter', component)
-    .controller('CounterController', CounterController)
+    .component('angularjsCounter', Component(elId, CounterController))
+    .controller('CounterController', ['$ngRedux', '$scope', 'ngActions', CounterController])
     .config([
       '$ngReduxProvider',
       ($ngReduxProvider) => {
