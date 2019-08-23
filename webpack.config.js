@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
 const isProd = env === 'production';
@@ -29,16 +28,15 @@ module.exports = {
     mainFields: ['svelte', 'browser', 'module', 'main'], //
   },
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        title: 'One source of truth for all',
-        meta: {
-          viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-          author: 'jmtalarn',
-          description: 'A webpage with a single Redux store and multiple components created with different frameworks and libraries using it.',
-        },
+    new HtmlWebpackPlugin({
+      title: 'One source of truth for all',
+      meta: {
+        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        author: 'jmtalarn',
+        description:
+          'A webpage with a single Redux store and multiple components created with different frameworks and libraries using it.',
       },
-    ),
+    }),
     extractCss,
     new VueLoaderPlugin(),
   ],
@@ -75,7 +73,6 @@ module.exports = {
           loader: 'elm-webpack-loader',
           options: {},
         },
-
       },
       {
         test: /\.(svelte)$/,
@@ -89,6 +86,12 @@ module.exports = {
       {
         test: /\.ts$/,
         use: ['ts-loader'],
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+        },
       },
     ],
   },
