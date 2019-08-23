@@ -18,14 +18,16 @@ class WcCounter extends HTMLElement {
         div p {
             color: red;
             padding: 1rem;
+            min-width: 2rem;
+            text-align: center;
         }
         button {
           position: relative;
           overflow: hidden;
           transform: translate3d(0, 0, 0);
           font-size: 1.5rem;
-          width: 2.5rem;
-          height: 2.5rem;
+          min-width: 3rem;
+          min-height: 3rem;
           background-color: rgb(241, 241, 241); /* rgb(0, 183, 255); */
           border: none;
           color: grey; /*#fff;*/
@@ -65,7 +67,6 @@ class WcCounter extends HTMLElement {
     this.decrementBtn = this.shadowRoot.querySelector('[decrement]');
     this.displayCount = this.shadowRoot.querySelector('[count]');
   }
-
 
   static get observedAttributes() {
     return ['count'];
