@@ -24,11 +24,11 @@ export default function (elId, Component, actionNames) {
   }, {});
 
   // const component = new Component(elId, CounterController);
-
+  const component = Component(elId, CounterController);
   angular
     .module('angularjsCounter', [ngRedux])
     .factory('ngActions', () => actions)
-    .component('angularjsCounter', Component(elId, CounterController))
+    .component('angularjsCounter', component)
     .controller('CounterController', CounterController)
     .config([
       '$ngReduxProvider',
