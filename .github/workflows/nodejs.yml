@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build and Publish into GH pages
 on: [push]
 jobs:
   build-and-deploy:
