@@ -1,4 +1,4 @@
-name: Build
+name: Build and deploy
 on: [push]
 jobs:
   build-and-deploy:
@@ -18,3 +18,9 @@ jobs:
       run: |
         npm install
         npm run build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_PUBLISH_GHPAGES }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist
